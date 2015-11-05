@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <h1><%= title %></h1>
+  <%
+  if(!user){%>
+  <span>Welcome to <%= title %></span> <a href="/login">登录</a><a href="/reg">注册</a>
+  <% }
+  else
+  {%>
+  <p>欢迎 <%= user.name %></p>
+  <a href="/logout">登出</a>
+  <%}
+  %>
+<form action="/article" method="post">
+    标题：<input type="text" name="title" id="title"><br>
+    内容：<textarea id="content" name="content"></textarea><br>
+    发布时间：<input type="datetime" id="createtime" name="createtime"><br>
+    发布人：<input type="text" name="createuser" id="createuser" disabled="disabled" value="<%=user.name%>"><br>
+    <input type="submit" value="发布">
+  </form>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <%
+    if(!user){%>
+    <a href="/login">登录</a><a href="/reg">注册</a>
+    <% }
+    else
+    {%>
+    <p>欢迎 <%= user.name %> <a href="/logout">登出</a></p>
+
+    <%}
+    %>
+
+  <table>
+      <form action="/update" method="post">
+          <tr><td>ID：</td><td><input type="text"  name="id" id="id"  value="<%=article._id%>"  disabled="disabled"> </td></tr>
+          <tr><td>标题：</td><td><input type="text"  name="title" id="title" value="<%=article.title%>"> </td></tr>
+          <tr><td>内容：</td><td><textarea id="content" name="content"><%=article.content%></textarea></td></tr>
+          <tr><td>发布时间：</td><td><input type="text"  name="createtime" id="createtime" value="<%=article.createtime%>"> </td></tr>
+          <tr><td>发布人：</td><td><input type="text"  name="createuser" id="createuser" value="<%=article.createuser%>" disabled="disabled" > </td></tr>
+           <tr><td rowspan="2"><input type="submit" value="更新"></td></tr>
+
+      </form>
+  </table>
+   <!-- <% if (success) { %>
+    <div class="alert alert-success">
+        <%= success %>
+    </div>
+    <% } %>
+    <% if (error) { %>
+    <div class="alert alert-error">
+        <%= error %>
+    </div>
+    <% } %>-->
+    </body>
+</html>

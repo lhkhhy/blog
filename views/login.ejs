@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register Page</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <form method="post" >
+ 
+    username:<input  type="text" name="UserName" id="UserName" /><br/>
+    password:<input type="password" name="PassWord" id="PassWord"><br>
+    <input type="submit" value="Login">
+ 	
+  </form>
+  <% if (success) { %>
+ 		<div class="alert alert-success">
+ 		<%= success %>
+ 		</div>
+   <% } %>
+   <% if (error) { %>
+ 		<div class="alert alert-error">
+ 		<%= error %>
+ 		</div>
+   <% } %> 
+   </body>
+</html>
